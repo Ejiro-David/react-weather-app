@@ -21,7 +21,6 @@ const Search = ({ onSearchChange }) => {
           }),
         };
       })
-
       .catch((err) => console.error(err));
   };
 

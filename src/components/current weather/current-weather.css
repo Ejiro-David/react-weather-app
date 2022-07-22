@@ -18,7 +18,7 @@
 .city {
   font-weight: 900;
   font-size: xx-large;
-  line-height: 2;
+  line-height: 1;
   margin: 0;
   letter-spacing: 1px;
 }
@@ -35,8 +35,8 @@
 }
 
 .temp {
-  font-weight: 700;
-  font-size: 60px;
+  font-weight: 600;
+  font-size: 40px;
   width: auto;
   letter-spacing: -5px;
   margin: 10px 0;
@@ -66,5 +66,6 @@
 
 .details-heading{
     font-style: italic;
-    color:rgb(220, 205, 205)
+    color:rgb(220, 205, 205);
+    letter-spacing: 3px;
 }
