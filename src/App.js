@@ -16,7 +16,7 @@ function App() {
       `${WEATHER_API_URL}weather?lat=${lat}&lon=${lon}&appid=${"fc72690f1504d4a344dbace92452071c"}&units=metric`
     );
     const forecastFetch = fetch(
-      `${WEATHER_API_URL}forecast?lat=${lat}&lon=${lon}&appid=${"fc72690f1504d4a344dbace92452071c"}&units=metric`
+      `${WEATHER_API_URL}forecast?lat=${lat}&lon=${lon}&appid=${"fc72690f1504d4a344dbace92452071c"}&units=metric&cnt=5`
     );
 
     Promise.all([currentWeatherFetch, forecastFetch])
@@ -30,8 +30,8 @@ function App() {
       .catch((err) => console.log(err));
   };
 
-  console.log("current Weather", currentWeather);
-  console.log("forecast", forecast);
+  //console.log("current Weather", currentWeather);
+  //console.log("forecast", forecast);
 
   return (
     <div className="container">
@@ -39,7 +39,7 @@ function App() {
       {currentWeather ? (
         <CurrentWeather weatherDetails={currentWeather} />
       ) : null}
-      <Forecast />
+      {forecast ? <Forecast forecastDetails={forecast} /> : null}
     </div>
   );
 }

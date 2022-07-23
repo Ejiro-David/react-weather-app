@@ -2,8 +2,6 @@ import "./current-weather.css";
 
 const CurrentWeather = ({weatherDetails}) => {
 
-  console.log(weatherDetails)
-  console.log(weatherDetails.wind.speed)
   return (
     <div className="weather">
       <div className="top">

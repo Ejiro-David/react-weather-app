@@ -5,7 +5,7 @@
   border-radius: 6px;
   box-shadow: 10px -2px 20px 2px rgb(0 0 0/ 30%);
   margin: 20px auto 0 auto;
-  padding: 0 20px 20px 20px;
+  padding: 10px 20px 20px 20px;
 }
 
 .top,
@@ -67,5 +67,5 @@
 .details-heading{
     font-style: italic;
     color:rgb(220, 205, 205);
-    letter-spacing: 3px;
+    letter-spacing: 1px;
 }
