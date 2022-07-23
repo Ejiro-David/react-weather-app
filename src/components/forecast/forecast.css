@@ -26,16 +26,3 @@
   letter-spacing: 0px;
 }
 
-.forecast-details{
-    width: 90vw;
-    margin: 20px auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
- .cont{
-    display: flex;
-    justify-content: space-between;
-
- }
-

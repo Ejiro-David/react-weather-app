@@ -8,43 +8,43 @@ const Forecast = ({ forecastDetails }) => {
     setDrop(!drop);
   };
 //.list[0].weather.description
-  const ForecastDetails = ({otherDetails}) => {
+  const ForecastDetails = ({pressure, clouds, seaLevel, humidity, dayWeather, windspeed, tempFeels}) => {
  
 
-    //console.log(dayWeather)
+    console.log(dayWeather)
 
-    // return (
-    //   <div className="forecast-details">
-    //     <div className="box-1">
-    //       <div className="cont">
-    //         <p>pressure</p>
-    //         <span>{pressure}</span>
-    //       </div>
-    //       <div className="cont">
-    //         <p>clouds</p>
-    //         <span>{clouds}</span>
-    //       </div>
-    //       <div className="cont">
-    //         <p>see level</p>
-    //         <span>{seaLevel}</span>
-    //       </div>
-    //     </div>
-    //     <div className="box-2">
-    //       <div className="cont">
-    //         <p>{humidity}</p>
-    //         <span>24</span>
-    //       </div>
-    //       <div className="cont">
-    //         <p>Wind Speed</p>
-    //         <span>{windspeed}</span>
-    //       </div>
-    //       <div className="cont">
-    //         <p>Feels</p>
-    //         <span>{tempFeels}</span>
-    //       </div>
-    //     </div>
-    //   </div>
-    // );
+    return (
+      <div className="forecast-details">
+        <div className="box-1">
+          <div className="cont">
+            <p>pressure</p>
+            <span>{pressure}</span>
+          </div>
+          <div className="cont">
+            <p>clouds</p>
+            <span>{clouds}</span>
+          </div>
+          <div className="cont">
+            <p>see level</p>
+            <span>{seaLevel}</span>
+          </div>
+        </div>
+        <div className="box-2">
+          <div className="cont">
+            <p>{humidity}</p>
+            <span>24</span>
+          </div>
+          <div className="cont">
+            <p>Wind Speed</p>
+            <span>{windspeed}</span>
+          </div>
+          <div className="cont">
+            <p>Feels</p>
+            <span>{tempFeels}</span>
+          </div>
+        </div>
+      </div>
+    );
   };
 
   return forecastDetails.list.map((dayWeather) => {
@@ -53,15 +53,13 @@ const Forecast = ({ forecastDetails }) => {
     let descr = dayWeather.weather[0].description;
     let tempMin = dayWeather.main.temp_min;
     let tempMax = dayWeather.main.temp_max;
+    let pressure = dayWeather.main.pressure
+    let clouds = dayWeather.clouds.all
+    let seaLevel = dayWeather.main.sea_level
+    let humidity = dayWeather.main.humidity
+    let windspeed = dayWeather.wind.speed
+    let tempFeels = dayWeather.main.feels_like
 
-    let otherDetails = {
-        pressure : dayWeather.main.pressure,
-        clouds : dayWeather.clouds.all,
-        seaLevel : dayWeather.main.sea_level,
-        humidity : dayWeather.main.humidity,
-        windspeed : dayWeather.wind.speed,
-        tempFeels : dayWeather.main.feels_like
-    }
     
     console.log(dayWeather)
     return (
@@ -82,7 +80,7 @@ const Forecast = ({ forecastDetails }) => {
             </p>
           </div>
         </div>
-        {false && <ForecastDetails forecastDetails={{...otherDetails}} />}
+        {drop && <ForecastDetails forecastDetails={{pressure, clouds, seaLevel, humidity, dayWeather, windspeed, tempFeels}} />}
       </div>
     );
   });
