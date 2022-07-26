@@ -16,7 +16,7 @@ function App() {
       `${WEATHER_API_URL}weather?lat=${lat}&lon=${lon}&appid=${"fc72690f1504d4a344dbace92452071c"}&units=metric`
     );
     const forecastFetch = fetch(
-      `${WEATHER_API_URL}forecast?lat=${lat}&lon=${lon}&appid=${"fc72690f1504d4a344dbace92452071c"}&units=metric&cnt=5`
+      `${WEATHER_API_URL}forecast?lat=${lat}&lon=${lon}&appid=${"fc72690f1504d4a344dbace92452071c"}&units=metric`
     );
 
     Promise.all([currentWeatherFetch, forecastFetch])

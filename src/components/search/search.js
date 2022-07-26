@@ -31,7 +31,7 @@ const Search = ({ onSearchChange }) => {
 
   return (
     <AsyncPaginate
-      placeholder="search for cities in Nigeria"
+      placeholder="search for cities weather"
       debounceTimeout={600}
       value={search}
       onChange={handleOnchange}
