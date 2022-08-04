@@ -8,25 +8,47 @@ const WEEKDAYS = [
   "Thursday",
   "Friday",
   "Saturday",
-  "Sunday"
-  ];
+  "Sunday",
+];
 
-  let currentDay = new Date().getDay()
-  var forecastDay = WEEKDAYS.slice(currentDay, WEEKDAYS.length).concat(WEEKDAYS.slice(0, currentDay))
+let currentDay = new Date().getDay();
+var forecastDay = WEEKDAYS.slice(currentDay, WEEKDAYS.length).concat(
+  WEEKDAYS.slice(0, currentDay)
+);
 
 const Forecast = ({ forecastDetails }) => {
-  const [drop, setDrop] = useState(false);
-  const toggleDropDown = () => {
-    setDrop(!drop);
-  };
-//.list[0].weather.description
-  const ForecastDetails = ({pressure, clouds, seaLevel, humidity, dayWeather, windspeed, tempFeels}) => {
- 
 
+    
+    const [drop, setDrop] = useState({
+      Friday: false,
+      Saturday: false,
+      Sunday: false,
+      Monday: false,
+      Tuesday: false,
+      Wednesday: false,
+      Thursday: false
+    })
+    //.list[0].weather.description
+    const toggleDropDown = (e) => {
+      setDrop({
+        ...drop,
+        [e.target.id]: !e.target.id
+    })
+    };
+    const ForecastDetails = ({
+    pressure,
+    clouds,
+    seaLevel,
+    humidity,
+    dayWeather,
+    windspeed,
+    tempFeels,
+  }) => {
     //console.log(dayWeather)
-
+    console.log(forecastDay)
     return (
       <div className="forecast-details">
+      
         <div className="box-1">
           <div className="cont">
             <p>pressure</p>
@@ -59,21 +81,20 @@ const Forecast = ({ forecastDetails }) => {
     );
   };
 
-  return forecastDetails.list.splice(0,7).map((dayWeather, i) => {
+  return forecastDetails.list.splice(0, 7).map((dayWeather, i) => {
     let icon = dayWeather.weather[0].icon;
     let descr = dayWeather.weather[0].description;
     let tempMin = dayWeather.main.temp_min;
     let tempMax = dayWeather.main.temp_max;
-    let pressure = dayWeather.main.pressure
-    let clouds = dayWeather.clouds.all
-    let seaLevel = dayWeather.main.sea_level
-    let humidity = dayWeather.main.humidity
-    let windspeed = dayWeather.wind.speed
-    let tempFeels = dayWeather.main.feels_like
+    let pressure = dayWeather.main.pressure;
+    let clouds = dayWeather.clouds.all;
+    let seaLevel = dayWeather.main.sea_level;
+    let humidity = dayWeather.main.humidity;
+    let windspeed = dayWeather.wind.speed;
+    let tempFeels = dayWeather.main.feels_like;
 
-    
     return (
-      <div  key={dayWeather.dt} onClick={toggleDropDown}>
+      <div key={dayWeather.dt} onClick={toggleDropDown} id={forecastDay[i]}>
         <div className="forecast-tab">
           <div className="icon-day">
             <img
@@ -90,7 +111,19 @@ const Forecast = ({ forecastDetails }) => {
             </p>
           </div>
         </div>
-        {drop && <ForecastDetails forecastDetails={{pressure, clouds, seaLevel, humidity, dayWeather, windspeed, tempFeels}} />}
+        {drop && (
+          <ForecastDetails
+            forecastDetails={{
+              pressure,
+              clouds,
+              seaLevel,
+              humidity,
+              dayWeather,
+              windspeed,
+              tempFeels,
+            }}
+          />
+        )}
       </div>
     );
   });
