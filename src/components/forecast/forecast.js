@@ -1,4 +1,4 @@
-//import { useState } from "react";
+import { useState } from "react";
 import "./forecast.css";
 
 const WEEKDAYS = [
@@ -15,10 +15,10 @@ const WEEKDAYS = [
   var forecastDay = WEEKDAYS.slice(currentDay, WEEKDAYS.length).concat(WEEKDAYS.slice(0, currentDay))
 
 const Forecast = ({ forecastDetails }) => {
-  // const [drop, setDrop] = useState(false);
-  // const toggleDropDown = () => {
-  //   setDrop(!drop);
-  // };
+  const [drop, setDrop] = useState(false);
+  const toggleDropDown = () => {
+    setDrop(!drop);
+  };
 //.list[0].weather.description
   const ForecastDetails = ({pressure, clouds, seaLevel, humidity, dayWeather, windspeed, tempFeels}) => {
  
@@ -64,16 +64,16 @@ const Forecast = ({ forecastDetails }) => {
     let descr = dayWeather.weather[0].description;
     let tempMin = dayWeather.main.temp_min;
     let tempMax = dayWeather.main.temp_max;
-    // let pressure = dayWeather.main.pressure
-    // let clouds = dayWeather.clouds.all
-    // let seaLevel = dayWeather.main.sea_level
-    // let humidity = dayWeather.main.humidity
-    // let windspeed = dayWeather.wind.speed
-    // let tempFeels = dayWeather.main.feels_like
+    let pressure = dayWeather.main.pressure
+    let clouds = dayWeather.clouds.all
+    let seaLevel = dayWeather.main.sea_level
+    let humidity = dayWeather.main.humidity
+    let windspeed = dayWeather.wind.speed
+    let tempFeels = dayWeather.main.feels_like
 
     
     return (
-      <div  key={dayWeather.dt}>
+      <div  key={dayWeather.dt} onClick={toggleDropDown}>
         <div className="forecast-tab">
           <div className="icon-day">
             <img
@@ -90,7 +90,7 @@ const Forecast = ({ forecastDetails }) => {
             </p>
           </div>
         </div>
-        {/* {false && <ForecastDetails forecastDetails={{pressure, clouds, seaLevel, humidity, dayWeather, windspeed, tempFeels}} />} */}
+        {drop && <ForecastDetails forecastDetails={{pressure, clouds, seaLevel, humidity, dayWeather, windspeed, tempFeels}} />}
       </div>
     );
   });
