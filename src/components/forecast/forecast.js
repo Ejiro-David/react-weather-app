@@ -17,25 +17,13 @@ var forecastDay = WEEKDAYS.slice(currentDay, WEEKDAYS.length).concat(
 );
 
 const Forecast = ({ forecastDetails }) => {
-
-    
-    const [drop, setDrop] = useState({
-      Friday: false,
-      Saturday: false,
-      Sunday: false,
-      Monday: false,
-      Tuesday: false,
-      Wednesday: false,
-      Thursday: false
-    })
-    //.list[0].weather.description
-    const toggleDropDown = (e) => {
-      setDrop({
-        ...drop,
-        [e.target.id]: !e.target.id
-    })
-    };
-    const ForecastDetails = ({
+  const [drop, setDrop] = useState(false);
+  const toggleDropDown = (e) => {
+    console.log(e.target)
+    setDrop(!drop);
+  };
+  //.list[0].weather.description
+  const ForecastDetails = ({
     pressure,
     clouds,
     seaLevel,
@@ -45,7 +33,7 @@ const Forecast = ({ forecastDetails }) => {
     tempFeels,
   }) => {
     //console.log(dayWeather)
-    console.log(forecastDay)
+
     return (
       <div className="forecast-details">
       
@@ -65,8 +53,8 @@ const Forecast = ({ forecastDetails }) => {
         </div>
         <div className="box-2">
           <div className="cont">
-            <p>{humidity}</p>
-            <span>24</span>
+            <p>humidity</p>
+            <span>{humidity}</span>
           </div>
           <div className="cont">
             <p>Wind Speed</p>
@@ -94,7 +82,7 @@ const Forecast = ({ forecastDetails }) => {
     let tempFeels = dayWeather.main.feels_like;
 
     return (
-      <div key={dayWeather.dt} onClick={toggleDropDown} id={forecastDay[i]}>
+      <div key={dayWeather.dt} onClick={toggleDropDown} >
         <div className="forecast-tab">
           <div className="icon-day">
             <img
