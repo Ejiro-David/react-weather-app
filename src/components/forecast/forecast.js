@@ -17,13 +17,16 @@ var forecastDay = WEEKDAYS.slice(currentDay, WEEKDAYS.length).concat(
 );
 
 const Forecast = ({ forecastDetails }) => {
+
   const [drop, setDrop] = useState(false);
+
   const toggleDropDown = (e) => {
-    console.log(e.target);
+    e.preventDefault()
+    console.log(e);
     setDrop(!drop);
   };
-  //.list[0].weather.description
-  const ForecastDetails = ({
+
+  const ExtraDetails = ({
     pressure,
     clouds,
     seaLevel,
@@ -35,7 +38,7 @@ const Forecast = ({ forecastDetails }) => {
     //console.log(dayWeather)
 
     return (
-      <div className="forecast-details">
+      <div className="extra-details">
         <div className="box-1">
           <div className="cont">
             <p>pressure</p>
@@ -46,7 +49,7 @@ const Forecast = ({ forecastDetails }) => {
             <span>{433}</span>
           </div>
           <div className="cont">
-            <p>see level</p>
+            <p>sea level</p>
             <span>{242}</span>
           </div>
         </div>
@@ -80,6 +83,8 @@ const Forecast = ({ forecastDetails }) => {
     let windspeed = dayWeather.wind.speed;
     let tempFeels = dayWeather.main.feels_like;
 
+    console.log(icon, descr, tempMin, tempMax, pressure, clouds, seaLevel, humidity, windspeed, tempFeels)
+
     return (
       <div key={dayWeather.dt} onClick={toggleDropDown}>
         <div className="forecast-tab">
@@ -99,7 +104,7 @@ const Forecast = ({ forecastDetails }) => {
           </div>
         </div>
         {drop && (
-          <ForecastDetails
+          <ExtraDetails
             forecastDetails={{
               pressure,
               clouds,

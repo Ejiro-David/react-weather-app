@@ -27,7 +27,7 @@
   letter-spacing: 0px;
 }
 
-.forecast-details{
+.extra-details{
   display: flex;
   justify-content: space-between;
   width: 85vw;
