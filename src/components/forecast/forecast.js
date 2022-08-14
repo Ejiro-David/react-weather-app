@@ -19,7 +19,7 @@ var forecastDay = WEEKDAYS.slice(currentDay, WEEKDAYS.length).concat(
 const Forecast = ({ forecastDetails }) => {
   const [drop, setDrop] = useState(false);
   const toggleDropDown = (e) => {
-    console.log(e.target)
+    console.log(e.target);
     setDrop(!drop);
   };
   //.list[0].weather.description
@@ -36,33 +36,32 @@ const Forecast = ({ forecastDetails }) => {
 
     return (
       <div className="forecast-details">
-      
         <div className="box-1">
           <div className="cont">
             <p>pressure</p>
-            <span>{pressure}</span>
+            <span>{9809}</span>
           </div>
           <div className="cont">
             <p>clouds</p>
-            <span>{clouds}</span>
+            <span>{433}</span>
           </div>
           <div className="cont">
             <p>see level</p>
-            <span>{seaLevel}</span>
+            <span>{242}</span>
           </div>
         </div>
         <div className="box-2">
           <div className="cont">
             <p>humidity</p>
-            <span>{humidity}</span>
+            <span>{546}</span>
           </div>
           <div className="cont">
             <p>Wind Speed</p>
-            <span>{windspeed}</span>
+            <span>{24}</span>
           </div>
           <div className="cont">
             <p>Feels</p>
-            <span>{tempFeels}</span>
+            <span>{22}</span>
           </div>
         </div>
       </div>
@@ -82,7 +81,7 @@ const Forecast = ({ forecastDetails }) => {
     let tempFeels = dayWeather.main.feels_like;
 
     return (
-      <div key={dayWeather.dt} onClick={toggleDropDown} >
+      <div key={dayWeather.dt} onClick={toggleDropDown}>
         <div className="forecast-tab">
           <div className="icon-day">
             <img
