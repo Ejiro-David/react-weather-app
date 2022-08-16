@@ -21,8 +21,8 @@ const Forecast = ({ forecastDetails }) => {
   const [drop, setDrop] = useState(false);
 
   const toggleDropDown = (e) => {
-    e.preventDefault()
-    console.log(e);
+    //e.preventDefault()
+    console.log(e.target);
     setDrop(!drop);
   };
 
@@ -35,7 +35,7 @@ const Forecast = ({ forecastDetails }) => {
     windspeed,
     tempFeels,
   }) => {
-    //console.log(dayWeather)
+    console.log(dayWeather, pressure, clouds, seaLevel, humidity, dayWeather, windspeed, tempFeels)
 
     return (
       <div className="extra-details">
@@ -83,10 +83,10 @@ const Forecast = ({ forecastDetails }) => {
     let windspeed = dayWeather.wind.speed;
     let tempFeels = dayWeather.main.feels_like;
 
-    console.log(icon, descr, tempMin, tempMax, pressure, clouds, seaLevel, humidity, windspeed, tempFeels)
+    console.log(icon, descr, tempMin, tempMax, pressure, clouds, seaLevel, humidity, windspeed, tempFeels, i)
 
     return (
-      <div key={dayWeather.dt} onClick={toggleDropDown}>
+      <div key={i} onClick={toggleDropDown}>
         <div className="forecast-tab">
           <div className="icon-day">
             <img
@@ -112,7 +112,7 @@ const Forecast = ({ forecastDetails }) => {
               humidity,
               dayWeather,
               windspeed,
-              tempFeels,
+              tempFeels
             }}
           />
         )}
