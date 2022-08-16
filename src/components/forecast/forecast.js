@@ -86,7 +86,7 @@ const Forecast = ({ forecastDetails }) => {
     console.log(icon, descr, tempMin, tempMax, pressure, clouds, seaLevel, humidity, windspeed, tempFeels, i)
 
     return (
-      <div key={i} onClick={toggleDropDown}>
+      <div key={i} onClick>
         <div className="forecast-tab">
           <div className="icon-day">
             <img
@@ -99,7 +99,7 @@ const Forecast = ({ forecastDetails }) => {
           <div className="details-temp">
             <p>{descr}</p>
             <p>
-              {Math.round(tempMin)}/{Math.round(tempMax)}
+              {`${Math.round(tempMin)}/${Math.round(tempMax)} °C`}
             </p>
           </div>
         </div>
