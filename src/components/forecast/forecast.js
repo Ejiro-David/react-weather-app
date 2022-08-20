@@ -20,6 +20,7 @@ const Forecast = ({ forecastDetails }) => {
 
   const [drop, setDrop] = useState(false);
 
+  //toggle dropdown inactive until i figure the bug out
   const toggleDropDown = (e) => {
     //e.preventDefault()
     console.log(e.target);
@@ -46,6 +47,7 @@ const Forecast = ({ forecastDetails }) => {
           </div>
           <div className="cont">
             <p>clouds</p>
+            {/* number values here are place holders */}
             <span>{433}</span>
           </div>
           <div className="cont">
